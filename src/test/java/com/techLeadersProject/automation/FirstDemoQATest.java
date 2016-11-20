@@ -13,9 +13,13 @@ public class FirstDemoQATest {
 
     @BeforeClass
     public static void setUp() {
-
         System.setProperty("webdriver.gecko.driver","C:\\Instalki\\geckodriver-v0.11.1-win64\\geckodriver.exe");
         driver = new FirefoxDriver();
+    }
+
+    @AfterClass
+    public static void tearDown() {
+        driver.close();
     }
 
     @Test
@@ -26,12 +30,7 @@ public class FirstDemoQATest {
         .sendLinkToOpen()
         .clickEnterToConfirmTheChoice()
         .clickToDemoQALink()
-                .assertThatDemoQAPageIsOpen();
-    }
-
-    @AfterClass
-    public static void tearDown() {
-        driver.close();
+                .assertThatDemoQALogoIsDisplayed();
     }
 
 }
