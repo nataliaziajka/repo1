@@ -1,11 +1,14 @@
 package com.techLeadersProject.automation;
 
+import org.apache.log4j.PropertyConfigurator;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import pages.GooglePage;
+
+import java.util.concurrent.TimeUnit;
 
 public class FirstDemoQATest {
 
@@ -13,8 +16,10 @@ public class FirstDemoQATest {
 
     @BeforeClass
     public static void setUp() {
-        System.setProperty("webdriver.gecko.driver","C:\\Instalki\\geckodriver-v0.11.1-win64\\geckodriver.exe");
-        driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver", "C:\\Instalki\\chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        PropertyConfigurator.configure("log4j.properties");
     }
 
     @AfterClass
@@ -23,13 +28,11 @@ public class FirstDemoQATest {
     }
 
     @Test
-    public void openGooglePage(){
+    public void openGooglePage() {
         new GooglePage(driver).openGooglePage()
-
-        .clickToSearchField()
-        .sendLinkToOpen()
-        .clickEnterToConfirmTheChoice()
-        .clickToDemoQALink()
+                .enterSearchPhrase("demoqa.com")
+                .clickEnterToConfirmTheChoice()
+                .clickToDemoQALink()
                 .assertThatDemoQALogoIsDisplayed();
     }
 

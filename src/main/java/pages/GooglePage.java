@@ -1,5 +1,6 @@
 package pages;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -14,38 +15,44 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public class GooglePage extends BasePage {
 
+    private final static Logger LOG = Logger.getLogger(GooglePage.class);
 
     @FindBy(xpath=".//a[@href='http://demoqa.com/']")
     WebElement linkToDemoQA;
 
-    WebElement searchField = (new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(By.id("sb_ifc0")));
+    @FindBy(id = "lst-ib")
+    WebElement searchField;
+
+    @FindBy(css = "#sblsbb > .lsb")
+    WebElement searchButton;
 
     public GooglePage(WebDriver driver) {
         super(driver);
     }
 
     public GooglePage openGooglePage(){
+        LOG.info("Open google page");
         driver.get("http://google.pl");
         return this;
     }
 
     public DemoQAPage clickToDemoQALink(){
+        LOG.info("Click demoQA link");
+        waitForWebElementToBeClickable(linkToDemoQA);
         linkToDemoQA.click();
         return PageFactory.initElements(driver, DemoQAPage.class);
     }
 
-    public GooglePage sendLinkToOpen(){
-        searchField.sendKeys("demoqa.com");
-        return this;
-    }
-
-    public GooglePage clickToSearchField(){
-        searchField.click();
+    public GooglePage enterSearchPhrase(String searchText){
+        LOG.info("Send link to open");
+        waitForWebElementToBeClickable(searchField);
+        searchField.sendKeys(searchText);
         return this;
     }
 
     public GooglePage clickEnterToConfirmTheChoice(){
-        searchField.sendKeys(Keys.ENTER);
+        LOG.info("Press Search button");
+        searchButton.click();
         return this;
     }
 }
