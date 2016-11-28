@@ -2,28 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b0a4e6e-8ca8-4f1f-a1ae-2d6a480d6bd4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/DemoQATest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/FileExtensionValidationTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_beust_jcommander_1_27.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_beanshell_bsh_2_0b4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_testng_testng_6_8_8.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pages/RegistrationPage.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/RegistrationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" afterPath="$PROJECT_DIR$/src/main/java/pages/BasePage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pages/DemoQAPage.java" afterPath="$PROJECT_DIR$/src/main/java/pages/DemoQAPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/FirstDemoQATest.java" afterPath="$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/FirstDemoQATest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pages/GooglePage.java" afterPath="$PROJECT_DIR$/src/main/java/pages/GooglePage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/selenium_lib.xml" afterPath="$PROJECT_DIR$/.idea/libraries/selenium_lib.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
-    <list id="9a068252-8d21-4eac-bcea-eb82b6d56c85" name="IGNORE" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pages/BasePage.class" afterPath="$PROJECT_DIR$/target/classes/pages/BasePage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pages/DemoQAPage.class" afterPath="$PROJECT_DIR$/target/classes/pages/DemoQAPage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/techLeadersProject/automation/FirstDemoQATest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/techLeadersProject/automation/FirstDemoQATest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/pages/GooglePage.class" afterPath="$PROJECT_DIR$/target/classes/pages/GooglePage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TechLeadersProject.iml" afterPath="$PROJECT_DIR$/TechLeadersProject.iml" />
-    </list>
+    <list id="9a068252-8d21-4eac-bcea-eb82b6d56c85" name="IGNORE" comment="" />
     <ignored path="TechLeadersProject.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -67,7 +48,7 @@
       <file leaf-file-name="FileExtensionValidationTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/FileExtensionValidationTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.5534591">
+            <state vertical-scroll-proportion="-0.27672955">
               <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -1523,7 +1504,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/FileExtensionValidationTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.5534591">
+        <state vertical-scroll-proportion="-0.27672955">
           <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
