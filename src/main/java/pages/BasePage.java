@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * Created by Natalia on 2016-11-14.
  */
 public abstract class BasePage{
+
     public WebDriver driver;
 
     public BasePage(WebDriver driver) {
@@ -24,4 +25,5 @@ public abstract class BasePage{
     protected void waitForWebElementToBeClickable(WebElement webElement) {
         (new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(webElement));
     }
+
 }
