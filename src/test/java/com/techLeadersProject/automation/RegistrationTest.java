@@ -8,7 +8,7 @@ import pages.RegistrationPage;
 /**
  * Created by Natalia on 2016-11-24.
  */
-public class RegistrationTest extends RegistrationPage{
+public class RegistrationTest extends BaseTest{
 
     public RegistrationTest(WebDriver driver) {
         super(driver);
@@ -39,8 +39,6 @@ public class RegistrationTest extends RegistrationPage{
                     .enterPasswordToConfirm("DemoQATests16")
                     .clickSubmitButton()
                         .assertThatConfirmationMessageIsDisplayed();
-
-
         }
 }
 
