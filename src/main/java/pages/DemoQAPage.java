@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 /**
  * Created by Natalia on 2016-11-16.
@@ -30,12 +31,11 @@ public class DemoQAPage extends BasePage{
         return this;
     }
 
-    public DemoQAPage clickToRegistrationLink(){
+    public RegistrationPage clickToRegistrationLink(){
         LOG.info("Click registration link");
         waitForWebElementToBeClickable(registrationLink);
         registrationLink.click();
-//        return PageFactory.initElements(driver, RegistrationPage.class);
-        return this;
+        return PageFactory.initElements(driver, RegistrationPage.class);
     }
 
 

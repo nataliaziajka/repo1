@@ -17,7 +17,7 @@ public class BaseTest {
 
     static WebDriver driver;
 
-    public BaseTest(WebDriver driver) {
+    public BaseTest() {
 
     }
 

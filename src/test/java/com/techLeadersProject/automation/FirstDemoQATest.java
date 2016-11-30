@@ -6,8 +6,8 @@ import pages.GooglePage;
 
 public class FirstDemoQATest extends BaseTest {
 
-    public FirstDemoQATest(WebDriver driver) {
-        super(driver);
+    public FirstDemoQATest() {
+
     }
 
     @Test

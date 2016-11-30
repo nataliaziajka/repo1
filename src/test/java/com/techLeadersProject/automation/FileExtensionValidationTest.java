@@ -17,7 +17,6 @@ import static junit.framework.Assert.assertEquals;
     private Boolean expectedResult;
 
     public FileExtensionValidationTest(String pathToPictures, Boolean expectedResult) {
-        super(driver);
         this.filename = pathToPictures;
         this.expectedResult = expectedResult;
 

@@ -10,16 +10,16 @@ import pages.RegistrationPage;
  */
 public class RegistrationTest extends BaseTest{
 
-    public RegistrationTest(WebDriver driver) {
-        super(driver);
+    public RegistrationTest() {
+
+        super();
     }
 
     @Test
     public void registerAtDemoQaPage(){
 
             new DemoQAPage(driver)
-                    .clickToRegistrationLink();
-            new RegistrationPage(driver)
+                    .clickToRegistrationLink()
                     .enterFirstName("Natalia")
                     .enterLastName("Ziajka")
                     .selectMartitalStatus()
