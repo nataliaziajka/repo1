@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Natalia on 2016-11-16.
@@ -22,7 +25,12 @@ public class DemoQAPage extends BasePage{
 
     public DemoQAPage(WebDriver driver) {
         super(driver);
+    }
+
+    public DemoQAPage openDemoQApage(){
+        LOG.info("Open DemoQA Page");
         driver.get("http://www.demoqa.com");
+        return this;
     }
 
     public DemoQAPage assertThatDemoQALogoIsDisplayed() {

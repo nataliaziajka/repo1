@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -75,7 +76,6 @@ public class RegistrationPage extends BasePage{
 
     public RegistrationPage(WebDriver driver) {
         super(driver);
-        driver.get("http://www.demoqa.com");
     }
 
     public RegistrationPage assertPhoneNumberError() {
@@ -106,6 +106,7 @@ public class RegistrationPage extends BasePage{
     public RegistrationPage enterFirstName(String firstName){
         LOG.info("Enter first name");
         firstNameField.sendKeys(firstName);
+        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         return this;
     }
 

@@ -1,9 +1,7 @@
 package com.techLeadersProject.automation;
 
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
 import pages.DemoQAPage;
-import pages.RegistrationPage;
 
 /**
  * Created by Natalia on 2016-11-24.
@@ -19,6 +17,7 @@ public class RegistrationTest extends BaseTest{
     public void registerAtDemoQaPage(){
 
             new DemoQAPage(driver)
+                    .openDemoQApage()
                     .clickToRegistrationLink()
                     .enterFirstName("Natalia")
                     .enterLastName("Ziajka")
@@ -30,6 +29,7 @@ public class RegistrationTest extends BaseTest{
                     .selectYear()
                     .enterPhoneNumber("12345678910")
                         .assertPhoneNumberError()
+                        .assertNoPhoneNumberError()
                     .enterUsername("NZiajka")
                     .enterEmail("nataliaziajka@gmail.com")
                     .uploadFile("C:\\Users\\Natalia\\Documents\\Invoice.pdf")
