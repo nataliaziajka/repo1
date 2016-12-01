@@ -5,10 +5,6 @@ import pages.GooglePage;
 
 public class FirstDemoQATest extends BaseTest {
 
-    public FirstDemoQATest() {
-
-    }
-
     @Test
     public void openGooglePage() {
         new GooglePage(driver)
@@ -19,8 +15,3 @@ public class FirstDemoQATest extends BaseTest {
                 .assertThatDemoQALogoIsDisplayed();
         }
     }
-
-
-
-
-

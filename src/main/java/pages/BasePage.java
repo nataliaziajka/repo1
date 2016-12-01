@@ -25,5 +25,4 @@ public abstract class BasePage{
     protected void waitForWebElementToBeClickable(WebElement webElement) {
         (new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(webElement));
     }
-
 }

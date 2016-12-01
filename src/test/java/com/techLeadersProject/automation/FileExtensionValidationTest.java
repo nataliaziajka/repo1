@@ -1,56 +1,45 @@
 package com.techLeadersProject.automation;
 
-import com.tngtech.java.junit.dataprovider.UseDataProvider;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import java.util.Arrays;
-import java.util.Collection;
-import static junit.framework.Assert.assertEquals;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import pages.DemoQAPage;
 
-/**
- * Created by Natalia on 2016-11-28.
- */
-    @RunWith(Parameterized.class)
-    public class FileExtensionValidationTest extends BaseTest {
+public class FileExtensionValidationTest extends BaseTest {
 
-    private String filename;
-    private Boolean expectedResult;
-
-    public FileExtensionValidationTest(String pathToPictures, Boolean expectedResult) {
-        this.filename = pathToPictures;
-        this.expectedResult = expectedResult;
-
-    }
-//    @Test
-//    public void fileExtensionValidationFail() {
-//        new DemoQAPage(driver)
-//                .clickToRegistrationLink();
-//        new RegistrationPage(driver)
-//                .uploadFile("C:\\Users\\Natalia\\Documents\\Invoice.pdf")
-//                .assertThatFileWasUploadedWithIncorrectExtension();
-//    }
-    @UseDataProvider("profilePictures")
-    public void fileExtensionValidationPass(final String filename, final String expected) {
-        assertEquals(expected, filename);
-
-//        new DemoQAPage(driver)
-//                .clickToRegistrationLink();
-//        new RegistrationPage(driver)
-//                .uploadFile("C:\\Users\\Natalia\\IdeaProjects\\" + filename)
-//                        .assertThatFileWasUploadedWithIncorrectExtension();
+    @Test(dataProvider = "profilePicturesPass")
+    public void fileExtensionValidationPass(String filename) {
+        new DemoQAPage(driver)
+                .openDemoQApage()
+                .clickToRegistrationLink()
+                .uploadFile("src\\test\\resources\\" + filename)
+                .assertThatFileWasUploadedCorrectly();
     }
 
-    @Parameterized.Parameters
-        public static Collection profilePictures(){
-            return Arrays.asList(new Object[][]{
-                    {"TechLeadersProject\\src\\test\\resources\\kotek.jpg",true},
-                    {"TechLeadersProject\\src\\test\\resources\\kotek.png",true},
-                    {"TechLeadersProject\\src\\test\\resources\\kotek.bmp",true},
-                    {"TechLeadersProject\\src\\test\\resources\\Invoice.doc",false},
-                    {"TechLeadersProject\\src\\test\\resources\\Invoice.pdf",false},
-                    {"TechLeadersProject\\src\\test\\resources\\KRS_report.xls",false},
+    @Test(dataProvider = "profilePicturesFail")
+    public void fileExtensionValidationFail(String filename) {
+        new DemoQAPage(driver)
+                .openDemoQApage()
+                .clickToRegistrationLink()
+                .uploadFile("src\\test\\resources\\" + filename)
+                .assertThatFileWasUploadedWithIncorrectExtension();
+    }
 
+    @DataProvider(name = "profilePicturesPass")
+    public Object[][] profilePicturesPass() {
+        return new Object[][]{
+                {"kotek_jpg.jpg"},
+                {"kotek_png.png"},
+                {"kotek_bmp.bmp"},
+                {"kotek_gif.gif"}
+        };
+    }
 
-        });
+    @DataProvider(name = "profilePicturesFail")
+    public Object[][] profilePicturesFail() {
+        return new Object[][]{
+                {"Invoice.doc"},
+                {"Invoice.pdf"},
+                {"KRS_report.xls"}
+        };
     }
 }

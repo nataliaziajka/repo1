@@ -1,14 +1,11 @@
 package pages;
 
 import org.apache.log4j.Logger;
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.concurrent.TimeUnit;
+import org.testng.Assert;
 
 /**
  * Created by Natalia on 2016-11-16.
@@ -45,6 +42,4 @@ public class DemoQAPage extends BasePage{
         registrationLink.click();
         return PageFactory.initElements(driver, RegistrationPage.class);
     }
-
-
  }

@@ -8,14 +8,8 @@ import pages.DemoQAPage;
  */
 public class RegistrationTest extends BaseTest{
 
-    public RegistrationTest() {
-
-        super();
-    }
-
     @Test
     public void registerAtDemoQaPage(){
-
             new DemoQAPage(driver)
                     .openDemoQApage()
                     .clickToRegistrationLink()
@@ -41,7 +35,3 @@ public class RegistrationTest extends BaseTest{
                         .assertThatConfirmationMessageIsDisplayed();
         }
 }
-
-
-
-
