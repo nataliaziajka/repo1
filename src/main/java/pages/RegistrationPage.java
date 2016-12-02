@@ -194,6 +194,7 @@ public class RegistrationPage extends BasePage{
         LOG.info("Upload File: " + uploadFile.getAbsolutePath());
         waitForWebElementToBeClickable(profilePicture);
         profilePicture.sendKeys(uploadFile.getAbsolutePath());
+        waitForWebElementToBeClickable(driver.findElement(By.cssSelector("label[for='profile_pic_10']")));
         driver.findElement(By.cssSelector("label[for='profile_pic_10']")).click();
         return this;
     }

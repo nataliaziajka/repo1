@@ -11,7 +11,7 @@ public class RegistrationTest extends BaseTest{
     @Test
     public void registerAtDemoQaPage(){
             new DemoQAPage(driver)
-                    .openDemoQApage()
+//                    .openDemoQApage()
                     .clickToRegistrationLink()
                     .enterFirstName("Natalia")
                     .enterLastName("Ziajka")

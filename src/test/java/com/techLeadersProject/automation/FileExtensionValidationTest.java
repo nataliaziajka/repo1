@@ -9,7 +9,8 @@ public class FileExtensionValidationTest extends BaseTest {
     @Test(dataProvider = "profilePicturesPass")
     public void fileExtensionValidationPass(String filename) {
         new DemoQAPage(driver)
-                .openDemoQApage()
+//zobacz komentarz w DemoQAPage
+//                .openDemoQApage()
                 .clickToRegistrationLink()
                 .uploadFile("src\\test\\resources\\" + filename)
                 .assertThatFileWasUploadedCorrectly();
@@ -18,7 +19,7 @@ public class FileExtensionValidationTest extends BaseTest {
     @Test(dataProvider = "profilePicturesFail")
     public void fileExtensionValidationFail(String filename) {
         new DemoQAPage(driver)
-                .openDemoQApage()
+//                .openDemoQApage()
                 .clickToRegistrationLink()
                 .uploadFile("src\\test\\resources\\" + filename)
                 .assertThatFileWasUploadedWithIncorrectExtension();

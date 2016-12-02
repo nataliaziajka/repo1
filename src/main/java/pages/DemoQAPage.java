@@ -22,6 +22,14 @@ public class DemoQAPage extends BasePage{
 
     public DemoQAPage(WebDriver driver) {
         super(driver);
+        //skoro inicjalizujesz stronke to fajnie żeby ona od razu była otwarta.
+        //moze byc osobna metoda
+        //ale rownie dobrze jak nie lepiej gdyby te dwie linie z openDemoQApage były od razu tu
+//        LOG.info("Open DemoQA Page");
+//        driver.get("http://www.demoqa.com");
+
+        //i wtedy tej linii ani metody nie ma
+        openDemoQApage();
     }
 
     public DemoQAPage openDemoQApage(){
