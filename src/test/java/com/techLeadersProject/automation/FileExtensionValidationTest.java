@@ -2,7 +2,7 @@ package com.techLeadersProject.automation;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pages.DemoQAPage;
+import com.techLeadersProject.automation.pages.DemoQAPage;
 
 public class FileExtensionValidationTest extends BaseTest {
 

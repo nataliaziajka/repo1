@@ -1,7 +1,7 @@
 package com.techLeadersProject.automation;
 
 import org.testng.annotations.Test;
-import pages.DemoQAPage;
+import com.techLeadersProject.automation.pages.DemoQAPage;
 
 /**
  * Created by Natalia on 2016-11-24.

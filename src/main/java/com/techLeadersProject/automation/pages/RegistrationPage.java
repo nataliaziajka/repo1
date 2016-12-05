@@ -1,4 +1,4 @@
-package pages;
+package com.techLeadersProject.automation.pages;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Natalia on 2016-11-28.
  */
-public class RegistrationPage extends BasePage{
+public class RegistrationPage extends BasePage {
 
     private final static Logger LOG = Logger.getLogger(DemoQAPage.class);
 
