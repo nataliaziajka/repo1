@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  */
 public abstract class BasePage{
 
+    private static final Integer DEFAULT_IMPLICITLY_TIMEOUT_IN_SECONDS = 10;
     public WebDriver driver;
 
     public BasePage(WebDriver driver) {
@@ -23,6 +24,6 @@ public abstract class BasePage{
     }
 
     protected void waitForWebElementToBeClickable(WebElement webElement) {
-        (new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(webElement));
+        new WebDriverWait(driver, DEFAULT_IMPLICITLY_TIMEOUT_IN_SECONDS).until(ExpectedConditions.elementToBeClickable(webElement));
     }
 }

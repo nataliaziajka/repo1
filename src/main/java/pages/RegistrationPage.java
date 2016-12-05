@@ -99,7 +99,7 @@ public class RegistrationPage extends BasePage{
 
     public RegistrationPage assertThatFileWasUploadedWithIncorrectExtension() {
         LOG.info("Assert that file was uploaded with incorrect extension");
-        Assert.assertTrue(uploadError.get(0).getText().contains(" Invalid File"));
+        Assert.assertTrue(!uploadError.isEmpty() && uploadError.get(0).getText().contains(" Invalid File"));
         return this;
     }
 
@@ -194,8 +194,8 @@ public class RegistrationPage extends BasePage{
         LOG.info("Upload File: " + uploadFile.getAbsolutePath());
         waitForWebElementToBeClickable(profilePicture);
         profilePicture.sendKeys(uploadFile.getAbsolutePath());
-        waitForWebElementToBeClickable(driver.findElement(By.cssSelector("label[for='profile_pic_10']")));
-        driver.findElement(By.cssSelector("label[for='profile_pic_10']")).click();
+        waitForWebElementToBeClickable(driver.findElement(By.cssSelector("label[for='default_6']")));
+        driver.findElement(By.cssSelector("label[for='default_6']")).click();
         return this;
     }
 

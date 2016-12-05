@@ -1,6 +1,6 @@
 package com.techLeadersProject.automation;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 import pages.DemoQAPage;
 
 /**
