@@ -1,12 +1,12 @@
 package pages;
 
 import org.apache.log4j.Logger;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import java.io.File;
 import java.util.List;
@@ -99,7 +99,13 @@ public class RegistrationPage extends BasePage{
 
     public RegistrationPage assertThatFileWasUploadedWithIncorrectExtension() {
         LOG.info("Assert that file was uploaded with incorrect extension");
-        Assert.assertTrue(uploadError.get(0).getText().contains(" Invalid File"));
+        Assert.assertTrue(!uploadError.isEmpty() && uploadError.get(0).getText().contains(" Invalid File"));
+        return this;
+    }
+
+    public RegistrationPage assertThatFileWasUploadedCorrectly() {
+        LOG.info("Assert that file was uploaded correctly");
+        Assert.assertTrue(uploadError.isEmpty());
         return this;
     }
 
@@ -109,7 +115,6 @@ public class RegistrationPage extends BasePage{
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         return this;
     }
-
     public RegistrationPage enterLastName(String lastName){
         LOG.info("Enter last name");
         lastNameField.sendKeys(lastName);
@@ -133,19 +138,20 @@ public class RegistrationPage extends BasePage{
         countryList.selectByVisibleText("Poland");
         return this;
     }
+
     public RegistrationPage selectMonth(){
         LOG.info("Select month");
         Select monthList = new Select(month);
         monthList.selectByVisibleText("3");
         return this;
     }
-
     public RegistrationPage selectDay(){
         LOG.info("Select day");
         Select dayList = new Select(day);
         dayList.selectByVisibleText("21");
         return this;
     }
+
     public RegistrationPage selectYear(){
         LOG.info("Select year");
         Select yearList = new Select(year);
@@ -184,10 +190,12 @@ public class RegistrationPage extends BasePage{
     }
 
     public RegistrationPage uploadFile(String path){
-        LOG.info("Upload File:" + path);
         File uploadFile = new File(path);
+        LOG.info("Upload File: " + uploadFile.getAbsolutePath());
+        waitForWebElementToBeClickable(profilePicture);
         profilePicture.sendKeys(uploadFile.getAbsolutePath());
-        driver.findElement(By.cssSelector("label[for='profile_pic_10'")).click();
+        waitForWebElementToBeClickable(driver.findElement(By.cssSelector("label[for='default_6']")));
+        driver.findElement(By.cssSelector("label[for='default_6']")).click();
         return this;
     }
 

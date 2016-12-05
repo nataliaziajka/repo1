@@ -1,6 +1,6 @@
 package com.techLeadersProject.automation;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 import pages.DemoQAPage;
 
 /**
@@ -8,16 +8,10 @@ import pages.DemoQAPage;
  */
 public class RegistrationTest extends BaseTest{
 
-    public RegistrationTest() {
-
-        super();
-    }
-
     @Test
     public void registerAtDemoQaPage(){
-
             new DemoQAPage(driver)
-                    .openDemoQApage()
+//                    .openDemoQApage()
                     .clickToRegistrationLink()
                     .enterFirstName("Natalia")
                     .enterLastName("Ziajka")
@@ -41,7 +35,3 @@ public class RegistrationTest extends BaseTest{
                         .assertThatConfirmationMessageIsDisplayed();
         }
 }
-
-
-
-
