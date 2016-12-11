@@ -19,7 +19,7 @@ public class GooglePage extends BasePage {
     @FindBy(id = "lst-ib")
     WebElement searchField;
 
-    @FindBy(css = "#sblsbb > .lsb")
+    @FindBy(css = "#sbtc .sbico-c")
     WebElement searchButton;
 
     public GooglePage(WebDriver driver) {

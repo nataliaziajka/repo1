@@ -10,8 +10,8 @@ public class RegistrationTest extends BaseTest{
 
     @Test
     public void registerAtDemoQaPage(){
-            new DemoQAPage(driver)
-//                    .openDemoQApage()
+
+        new DemoQAPage(driver)
                     .clickToRegistrationLink()
                     .enterFirstName("Natalia")
                     .enterLastName("Ziajka")
@@ -22,13 +22,12 @@ public class RegistrationTest extends BaseTest{
                     .selectDay()
                     .selectYear()
                     .enterPhoneNumber("12345678910")
-                        .assertPhoneNumberError()
+                    .clickUsernameLabelToValidatePhoneNumber()
                         .assertNoPhoneNumberError()
-                    .enterUsername("NZiajka")
-                    .enterEmail("nataliaziajka@gmail.com")
-                    .uploadFile("C:\\Users\\Natalia\\Documents\\Invoice.pdf")
-                        .assertThatFileWasUploadedWithIncorrectExtension()
+                    .enterUsername("NZiajka"+generateString())
+                    .enterEmail("nataliaziajka"+generateString()+"@gmail.com")
                     .uploadFile("C:\\Users\\Natalia\\Downloads\\zdjecia\\Natalia_Ziajka.jpg")
+                        .assertThatFileWasUploadedCorrectly()
                     .enterPassword("DemoQATests16")
                     .enterPasswordToConfirm("DemoQATests16")
                     .clickSubmitButton()
