@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class RegistrationPage extends BasePage{
 
-    private final static Logger LOG = Logger.getLogger(DemoQAPage.class);
+    private final static Logger LOG = Logger.getLogger(RegistrationPage.class);
 
     @FindBy(css="#phone_9 + div > span")
     private List<WebElement> phoneError;
