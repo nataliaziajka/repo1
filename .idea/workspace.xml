@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6b0a4e6e-8ca8-4f1f-a1ae-2d6a480d6bd4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/InteractionTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/InteractionTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pages/ResizablePage.java" afterPath="$PROJECT_DIR$/src/main/java/pages/ResizablePage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pages/SelectablePage.java" afterPath="$PROJECT_DIR$/src/main/java/pages/SelectablePage.java" />
-    </list>
+    <list default="true" id="6b0a4e6e-8ca8-4f1f-a1ae-2d6a480d6bd4" name="Default" comment="" />
     <list id="9a068252-8d21-4eac-bcea-eb82b6d56c85" name="IGNORE" comment="" />
     <ignored path="TechLeadersProject.iws" />
     <ignored path=".idea/workspace.xml" />
