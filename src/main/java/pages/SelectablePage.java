@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 import java.util.List;
@@ -15,6 +16,9 @@ import java.util.List;
  */
 public class SelectablePage extends BasePage{
 
+    @FindBy(xpath = ".//*[@id='tabs-1']/div/ol/li")
+    private WebElement listOfElements;
+
     private final static Logger LOG = Logger.getLogger(RegistrationPage.class);
     private final static String LIST_OF_ELEMENTS = ".//*[@id='tabs-1']/div/ol/li";
     private final static String EXP_CLASS_TEXT = "ui-widget-content ui-corner-left ui-selectee ui-selected";
@@ -23,9 +27,10 @@ public class SelectablePage extends BasePage{
         super(driver);
     }
 
-    public SelectablePage assertThatTwoOptionsWereMarked() {
-        LOG.info("Assert that two options were marked");
-        //Assert.assertEquals(actualClassText.compareTo(EXP_CLASS_TEXT));
+    public SelectablePage assertThatTwoOptionsWereSelected() {
+        LOG.info("Assert that two options were selected");
+        List<WebElement> listItems = this.getDriver().findElements(By.xpath(LIST_OF_ELEMENTS));
+        Assert.assertTrue(listOfElements.getText().contains(EXP_CLASS_TEXT));
         return this;
     }
 
