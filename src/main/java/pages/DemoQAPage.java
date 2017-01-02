@@ -61,4 +61,10 @@ public class DemoQAPage extends BasePage{
         driver.get("http://demoqa.com/resizable/");
         return PageFactory.initElements(driver, ResizablePage.class);
     }
+
+    public SelectablePage openSelectableSection(){
+        LOG.info("Open Selectable section");
+        driver.get("http://demoqa.com/selectable/");
+        return PageFactory.initElements(driver, SelectablePage.class);
+    }
  }

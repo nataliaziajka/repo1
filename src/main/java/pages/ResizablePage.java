@@ -19,7 +19,7 @@ public class ResizablePage extends BasePage {
         super(driver);
     }
 
-    public ResizablePage changeSizeOfElement() {
+    public ResizablePage resize() {
         WebElement resizeable = this.getDriver().findElement(By.cssSelector("#resizable"));
         Actions action = new Actions(driver);
         Action resize = action.clickAndHold(resizeable).moveByOffset(250, 250).release().build();
@@ -53,5 +53,6 @@ public class ResizablePage extends BasePage {
             System.out.println("Heightt is not the same");
 
     }
+
 }
 

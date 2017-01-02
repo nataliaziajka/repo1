@@ -1,15 +1,10 @@
 package com.techLeadersProject.automation;
 
 import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import pages.DemoQAPage;
 import pages.DroppablePage;
-import pages.ResizablePage;
 
 /**
  * Created by Natalia on 2016-12-12.
@@ -22,29 +17,32 @@ public class InteractionTest extends BaseTest {
     }
 
 
-    @Test
+    @Test(enabled = false)
     public void testDragAndDrop()throws InterruptedException {
-        //driver = new FirefoxDriver();  -->on the internet was information that this functionality works only on FF
+        //Comment: driver = new FirefoxDriver();  -->on the internet was information that this functionality works only on FF
         new DemoQAPage(driver)
                 .openDroppableSection()
                 .dragAndDropElement()
                     .assertThatDropTextIsDisplayed();
         }
-    @Test
+    @Test(enabled = false)
     public void testResizable() {
-        //driver = new FirefoxDriver();  -->on the internet was information that this functionality works only on FF
+        //Comment: driver = new FirefoxDriver();  -->on the internet was information that this functionality works only on FF
         new DemoQAPage(driver)
                 .openResizableSection()
-                .changeSizeOfElement()
+                .resize()
                     .assertThatSizeOfElementWasChanged();
 
+    }
+    @Test(enabled = true)
+    public void testSelectable(){
+        new DemoQAPage(driver)
+            .openSelectableSection()
+            .selectMultiElements()
+                .assertThatTwoOptionsWereMarked();
 
 
-
-
-
+        }
     }
 
-
-    }
 
