@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6b0a4e6e-8ca8-4f1f-a1ae-2d6a480d6bd4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pages/SelectablePage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pages/DemoQAPage.java" afterPath="$PROJECT_DIR$/src/main/java/pages/DemoQAPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/InteractionTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/InteractionTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pages/ResizablePage.java" afterPath="$PROJECT_DIR$/src/main/java/pages/ResizablePage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="6b0a4e6e-8ca8-4f1f-a1ae-2d6a480d6bd4" name="Default" comment="" />
     <list id="9a068252-8d21-4eac-bcea-eb82b6d56c85" name="IGNORE" comment="" />
     <ignored path="TechLeadersProject.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,8 +72,8 @@
       <file leaf-file-name="SelectablePage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pages/SelectablePage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34052756">
-              <caret line="27" column="70" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
+            <state vertical-scroll-proportion="0.44604316">
+              <caret line="31" column="49" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1191,8 +1185,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pages/SelectablePage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34052756">
-          <caret line="27" column="70" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
+        <state vertical-scroll-proportion="0.44604316">
+          <caret line="31" column="49" selection-start-line="31" selection-start-column="49" selection-end-line="31" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
