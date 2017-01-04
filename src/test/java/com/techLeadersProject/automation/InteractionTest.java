@@ -6,6 +6,8 @@ import org.testng.annotations.Test;
 import pages.DemoQAPage;
 import pages.DroppablePage;
 
+import java.util.Arrays;
+
 /**
  * Created by Natalia on 2016-12-12.
  */
@@ -34,12 +36,14 @@ public class InteractionTest extends BaseTest {
                     .assertThatSizeOfElementWasChanged(150, 150);
 
     }
-    @Test(enabled = false)
+    @Test//(enabled = false)
     public void testSelectable(){
         new DemoQAPage(driver)
             .openSelectableSection()
             .selectMultiElements()
+                .assertListSelectedItems(Arrays.asList("Item 2", "Item 3"))
                 .assertThatTwoOptionsWereSelected();
+
 
         }
     }

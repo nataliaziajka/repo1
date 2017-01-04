@@ -9,6 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,6 +19,9 @@ public class SelectablePage extends BasePage{
 
     @FindBy(xpath = ".//*[@id='tabs-1']/div/ol/li")
     private WebElement listOfElements;
+
+    @FindBy(css = "ol#selectable li.ui-selected")
+    private List<WebElement> listSelectedItems;
 
     private final static Logger LOG = Logger.getLogger(RegistrationPage.class);
     private final static String LIST_OF_ELEMENTS = ".//*[@id='tabs-1']/div/ol/li";
@@ -29,8 +33,23 @@ public class SelectablePage extends BasePage{
 
     public SelectablePage assertThatTwoOptionsWereSelected() {
         LOG.info("Assert that two options were selected");
-        List<WebElement> listItems = this.getDriver().findElements(By.xpath(LIST_OF_ELEMENTS));
+        List<WebElement> listItems = driver.findElements(By.xpath(LIST_OF_ELEMENTS));
         Assert.assertTrue(listOfElements.getText().contains(EXP_CLASS_TEXT));
+        return this;
+    }
+
+    public SelectablePage assertListSelectedItems(List<String> expectedSelectedItems) {
+        LOG.info("Check selected list items");
+        List<String> actualSelectedItems = new ArrayList<String>();
+        for(WebElement listItem : listSelectedItems) {
+            actualSelectedItems.add(listItem.getText());
+        }
+        Assert.assertEquals(actualSelectedItems, expectedSelectedItems);
+        return this;
+    }
+
+    public SelectablePage assertGridSelectedItems(List<String> expectedSelectedItems) {
+
         return this;
     }
 
