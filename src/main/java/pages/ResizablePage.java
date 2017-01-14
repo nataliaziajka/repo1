@@ -1,6 +1,7 @@
 package pages;
 
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
@@ -19,28 +20,16 @@ public class ResizablePage extends BasePage {
     }
 
     public ResizablePage resize(int vectorX, int vectorY) {
-        WebElement elementToResize = this.getDriver().findElement(By.cssSelector("#resizable"));
-        try {
+        WebElement elementToResize = getDriver().findElement(By.cssSelector("#resizable"));
             if (elementToResize.isDisplayed()) {
                 Actions action = new Actions(driver);
                 Action resize = action.clickAndHold(elementToResize).moveByOffset(vectorX, vectorY).release().build();
                 resize.perform();
-            } else {
-                System.out.println("Element was not displayed to drag");
-            }
-            } catch (StaleElementReferenceException e) {
-                System.out.println("Element with " + elementToResize + "is not attached to the page document " + e.getStackTrace());
-            } catch (NoSuchElementException e) {
-                System.out.println("Element " + elementToResize + " was not found in DOM " + e.getStackTrace());
-            } catch (Exception e) {
-                System.out.println("Unable to resize" + elementToResize + " - " + e.getStackTrace());
         }
         return this;
     }
 
     public void assertThatSizeOfElementWasChanged(int vectorX, int vectorY) {
-        LOG.info("Assert that size of element was changed");
-
         WebElement Image = driver.findElement(By.cssSelector("#resizable"));
 
         int imageWidth1 = Image.getSize().getWidth();
@@ -49,18 +38,14 @@ public class ResizablePage extends BasePage {
         driver.manage().window().setSize(new Dimension(vectorX, vectorY));
         WebElement ResizeImage;
         ResizeImage = driver.findElement(By.cssSelector("#resizable"));
+
         int imageWidth2 = ResizeImage.getSize().getWidth();
         int imageHeight2 = Image.getSize().getHeight();
 
-        if (imageWidth1 == imageWidth2)
-            System.out.println("Wight is the same");
-        else
-            System.out.println("Wight is not the same");
-
-        if (imageHeight1 == imageHeight2)
-            System.out.println("Height is the same");
-        else
-            System.out.println("Heightt is not the same");
+            LOG.info("Assert that Wight is the same");
+            Assert.assertEquals(imageWidth2, 300);
+            LOG.info("Assert that Height is the same");
+            Assert.assertEquals(imageHeight2,300);
 
     }
 

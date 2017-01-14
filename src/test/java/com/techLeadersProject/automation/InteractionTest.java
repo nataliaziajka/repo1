@@ -7,6 +7,7 @@ import pages.DemoQAPage;
 import pages.DroppablePage;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Natalia on 2016-12-12.
@@ -27,7 +28,7 @@ public class InteractionTest extends BaseTest {
                 .dragAndDropElement()
                     .assertThatDropTextIsDisplayed();
         }
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void testResizable() {
         //Comment: driver = new FirefoxDriver();  -->on the internet was information that this functionality works only on FF
         new DemoQAPage(driver)
@@ -36,15 +37,12 @@ public class InteractionTest extends BaseTest {
                     .assertThatSizeOfElementWasChanged(150, 150);
 
     }
-    @Test//(enabled = false)
+    @Test(enabled = true)
     public void testSelectable(){
         new DemoQAPage(driver)
             .openSelectableSection()
-            .selectMultiElements()
-                .assertListSelectedItems(Arrays.asList("Item 2", "Item 3"))
-                .assertThatTwoOptionsWereSelected();
-
-
+            .selectMultiElements(Arrays.asList(0,1,2,3))
+                .assertListSelectedItems(Arrays.asList("Item 1", "Item 2", "Item 3", "Item 4"));
         }
     }
 

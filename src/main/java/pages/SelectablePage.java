@@ -22,20 +22,16 @@ public class SelectablePage extends BasePage{
 
     @FindBy(css = "ol#selectable li.ui-selected")
     private List<WebElement> listSelectedItems;
+    private List<WebElement> listSelectedGridItems;
+    private List<WebElement> elementsList;
 
     private final static Logger LOG = Logger.getLogger(RegistrationPage.class);
     private final static String LIST_OF_ELEMENTS = ".//*[@id='tabs-1']/div/ol/li";
-    private final static String EXP_CLASS_TEXT = "ui-widget-content ui-corner-left ui-selectee ui-selected";
+    //private final static String EXP_CLASS_TEXT = "ui-widget-content ui-corner-left ui-selectee ui-selected";
+
 
     public SelectablePage(WebDriver driver) {
         super(driver);
-    }
-
-    public SelectablePage assertThatTwoOptionsWereSelected() {
-        LOG.info("Assert that two options were selected");
-        List<WebElement> listItems = driver.findElements(By.xpath(LIST_OF_ELEMENTS));
-        Assert.assertTrue(listOfElements.getText().contains(EXP_CLASS_TEXT));
-        return this;
     }
 
     public SelectablePage assertListSelectedItems(List<String> expectedSelectedItems) {
@@ -48,41 +44,27 @@ public class SelectablePage extends BasePage{
         return this;
     }
 
-    public SelectablePage assertGridSelectedItems(List<String> expectedSelectedItems) {
-
+    public SelectablePage assertGridSelectedItems(List<String> expectedSelectedGridItems) {
+        LOG.info("Check grid selected items");
+        List<String> actualSelectedGrid = new ArrayList<String>();
+        for(WebElement listItem : listSelectedGridItems) {
+            actualSelectedGrid.add(listItem.getText());
+        }
+        Assert.assertEquals(actualSelectedGrid, expectedSelectedGridItems);
         return this;
     }
 
-    public SelectablePage selectMultiElements() {
-        LOG.info("Select two first option");
+    public SelectablePage selectMultiElements(List<Integer> itemsToSelect) {
+        LOG.info("Select multiple options");
         List<WebElement> listItems = driver.findElements(By.xpath(LIST_OF_ELEMENTS));
         Actions builder = new Actions(driver);
-        builder.clickAndHold(listItems.get(1)).clickAndHold(listItems.get(2)).click();
+        for(Integer itemIndex : itemsToSelect) {
+            builder = builder.clickAndHold(listItems.get(itemIndex));
+            }
+        builder.click();
         Action selectMultiple = builder.build();
         selectMultiple.perform();
 
-        // Comment: -->This is solution for the option elements displayed in this select tag
-
-//        Select boxElements = new Select(driver.findElement(By.xpath(".//*[@id='tabs-1']/div")));
-//        boxElements.selectByIndex(0);
-//        boxElements.deselectByIndex(0);
-//
-//        boxElements.selectByVisibleText("Item 1");
-//        boxElements.deselectByVisibleText("Item 2");
-//
-//        List<WebElement> boxSize = boxElements.getOptions();
-//        int iListSize = boxSize.size();
-//            for (int i = 0; i < iListSize; i++) {
-//
-//                String sValue = boxElements.getOptions().get(i).getText();
-//                System.out.println(sValue);
-//                boxElements.selectByIndex(i);
-//                boxElements.deselectAll();
-//                driver.close();
-//            }
-
         return this;
+    }}
 
-    }
-
-}
