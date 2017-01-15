@@ -41,8 +41,8 @@ public class InteractionTest extends BaseTest {
     public void testSelectable(){
         new DemoQAPage(driver)
             .openSelectableSection()
-            .selectMultiElements(Arrays.asList(0,1,2,3))
-                .assertListSelectedItems(Arrays.asList("Item 1", "Item 2", "Item 3", "Item 4"));
+               .selectMultiElements(Arrays.asList("Item 1", "Item 2", "Item 3", "Item 4"))
+                       .assertListSelectedItems(Arrays.asList("Item 1", "Item 2", "Item 3", "Item 4"));
         }
     }
 

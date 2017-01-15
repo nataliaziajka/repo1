@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by Natalia on 2016-12-30.
  */
-public class SelectablePage extends BasePage{
+public class SelectablePage extends BasePage {
 
     @FindBy(xpath = ".//*[@id='tabs-1']/div/ol/li")
     private WebElement listOfElements;
@@ -27,8 +27,6 @@ public class SelectablePage extends BasePage{
 
     private final static Logger LOG = Logger.getLogger(RegistrationPage.class);
     private final static String LIST_OF_ELEMENTS = ".//*[@id='tabs-1']/div/ol/li";
-    //private final static String EXP_CLASS_TEXT = "ui-widget-content ui-corner-left ui-selectee ui-selected";
-
 
     public SelectablePage(WebDriver driver) {
         super(driver);
@@ -37,7 +35,7 @@ public class SelectablePage extends BasePage{
     public SelectablePage assertListSelectedItems(List<String> expectedSelectedItems) {
         LOG.info("Check selected list items");
         List<String> actualSelectedItems = new ArrayList<String>();
-        for(WebElement listItem : listSelectedItems) {
+        for (WebElement listItem : listSelectedItems) {
             actualSelectedItems.add(listItem.getText());
         }
         Assert.assertEquals(actualSelectedItems, expectedSelectedItems);
@@ -47,24 +45,27 @@ public class SelectablePage extends BasePage{
     public SelectablePage assertGridSelectedItems(List<String> expectedSelectedGridItems) {
         LOG.info("Check grid selected items");
         List<String> actualSelectedGrid = new ArrayList<String>();
-        for(WebElement listItem : listSelectedGridItems) {
+        for (WebElement listItem : listSelectedGridItems) {
             actualSelectedGrid.add(listItem.getText());
         }
         Assert.assertEquals(actualSelectedGrid, expectedSelectedGridItems);
         return this;
     }
 
-    public SelectablePage selectMultiElements(List<Integer> itemsToSelect) {
+    public SelectablePage selectMultiElements(List<String> itemsToSelect) {
         LOG.info("Select multiple options");
         List<WebElement> listItems = driver.findElements(By.xpath(LIST_OF_ELEMENTS));
         Actions builder = new Actions(driver);
-        for(Integer itemIndex : itemsToSelect) {
-            builder = builder.clickAndHold(listItems.get(itemIndex));
-            }
+
+        for (String itemName : itemsToSelect) {
+            builder = builder.clickAndHold(listItems.get(itemsToSelect.indexOf(itemName)));
+        }
+
         builder.click();
         Action selectMultiple = builder.build();
         selectMultiple.perform();
 
         return this;
-    }}
+    }
+}
 
