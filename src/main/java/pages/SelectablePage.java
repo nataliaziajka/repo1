@@ -10,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -38,6 +39,9 @@ public class SelectablePage extends BasePage {
         for (WebElement listItem : listSelectedItems) {
             actualSelectedItems.add(listItem.getText());
         }
+        Collections.sort(actualSelectedItems);
+        Collections.sort(expectedSelectedItems);
+
         Assert.assertEquals(actualSelectedItems, expectedSelectedItems);
         return this;
     }
@@ -56,16 +60,14 @@ public class SelectablePage extends BasePage {
         LOG.info("Select multiple options");
         List<WebElement> listItems = driver.findElements(By.xpath(LIST_OF_ELEMENTS));
         Actions builder = new Actions(driver);
-
         for (String itemName : itemsToSelect) {
             builder = builder.clickAndHold(listItems.get(itemsToSelect.indexOf(itemName)));
-        }
-
-        builder.click();
-        Action selectMultiple = builder.build();
-        selectMultiple.perform();
-
+            builder.click();
+            Action selectMultiple = builder.build();
+            selectMultiple.perform();
+    }
         return this;
     }
+
 }
 
