@@ -19,35 +19,32 @@ public class ResizablePage extends BasePage {
         super(driver);
     }
 
+    public void assertThatSizeOfElementWasChanged() {
+        WebElement elementAfterResize = getDriver().findElement(By.cssSelector("#resizable"));
+            Dimension elementSize = elementAfterResize.getSize();
+            System.out.println(elementSize.getWidth());
+            System.out.println(elementSize.getHeight());
+
+            LOG.info("Assert that Wight is the same");
+            Assert.assertEquals(300, elementSize.getWidth());
+            LOG.info("Assert that Height is the same");
+            Assert.assertEquals(300, elementSize.getHeight());
+    }
+
     public ResizablePage resize(int vectorX, int vectorY) {
-        WebElement elementToResize = getDriver().findElement(By.cssSelector("#resizable"));
-            if (elementToResize.isDisplayed()) {
-                Actions action = new Actions(driver);
-                Action resize = action.clickAndHold(elementToResize).moveByOffset(vectorX, vectorY).release().build();
-                resize.perform();
+        WebElement elementToResize = getDriver().findElement(By.xpath(".//*[@id='resizable']/div[3]"));
+            Dimension sizeBefore = elementToResize.getSize();
+            System.out.println(sizeBefore.getWidth());
+            System.out.println(sizeBefore.getHeight());
+
+        if (elementToResize.isDisplayed()) {
+            Actions action = new Actions(driver);
+            action.moveToElement(elementToResize);
+            action.clickAndHold();
+            action.moveByOffset(vectorX, vectorY);
+            action.release().perform();
         }
         return this;
     }
-
-    public void assertThatSizeOfElementWasChanged(int vectorX, int vectorY) {
-        WebElement Image = driver.findElement(By.cssSelector("#resizable"));
-
-        int imageWidth1 = Image.getSize().getWidth();
-        int imageHeight1 = Image.getSize().getHeight();
-
-        driver.manage().window().setSize(new Dimension(vectorX, vectorY));
-        WebElement ResizeImage;
-        ResizeImage = driver.findElement(By.cssSelector("#resizable"));
-
-        int imageWidth2 = ResizeImage.getSize().getWidth();
-        int imageHeight2 = Image.getSize().getHeight();
-
-            LOG.info("Assert that Wight is the same");
-            Assert.assertEquals(imageWidth2, 300);
-            LOG.info("Assert that Height is the same");
-            Assert.assertEquals(imageHeight2,300);
-
-    }
-
 }
 

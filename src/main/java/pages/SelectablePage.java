@@ -23,8 +23,8 @@ public class SelectablePage extends BasePage {
 
     @FindBy(css = "ol#selectable li.ui-selected")
     private List<WebElement> listSelectedItems;
+
     private List<WebElement> listSelectedGridItems;
-    private List<WebElement> elementsList;
 
     private final static Logger LOG = Logger.getLogger(RegistrationPage.class);
     private final static String LIST_OF_ELEMENTS = ".//*[@id='tabs-1']/div/ol/li";
@@ -56,18 +56,32 @@ public class SelectablePage extends BasePage {
         return this;
     }
 
-    public SelectablePage selectMultiElements(List<String> itemsToSelect) {
-        LOG.info("Select multiple options");
-        List<WebElement> listItems = driver.findElements(By.xpath(LIST_OF_ELEMENTS));
-        Actions builder = new Actions(driver);
-        for (String itemName : itemsToSelect) {
-            builder = builder.clickAndHold(listItems.get(itemsToSelect.indexOf(itemName)));
-            builder.click();
-            Action selectMultiple = builder.build();
-            selectMultiple.perform();
-    }
-        return this;
-    }
+//    public SelectablePage selectMultiElements(List<String> itemsToSelect) {
+//        LOG.info("Select multiple options");
+//
+//        List<WebElement> listItems = driver.findElements(By.xpath(LIST_OF_ELEMENTS));
+//        Actions builder = new Actions(driver);
+//        for (String itemName : itemsToSelect) {
+//            builder = builder.clickAndHold(listItems.get(itemsToSelect.indexOf(itemName)));
+//            builder.click().build().perform();
+//            Action selectMultiple = builder.build();
+//            selectMultiple.perform();
+//    }
+//        return this;
+//    }
 
-}
+    public SelectablePage selectMultiElements(List<String> itemsToSelect)  {
+
+        List<WebElement> listItems = driver.findElements(By.xpath(LIST_OF_ELEMENTS));
+
+        Actions builder = new Actions(driver);
+        builder.clickAndHold(listItems.get(1)).clickAndHold(listItems.get(2)).clickAndHold(listItems.get(3)).clickAndHold(listItems.get(4))
+                .click();
+
+        Action selectMultiple = builder.build();
+        selectMultiple.perform();
+
+    return this;
+
+}}
 
