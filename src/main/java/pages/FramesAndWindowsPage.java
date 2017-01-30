@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import java.util.ArrayList;
 import java.util.Set;
 
 /**
@@ -23,11 +24,12 @@ public class FramesAndWindowsPage extends BasePage {
 
     public void assertThatNewTabIsOpen(String expectedNewTabURL) {
         LOG.info("Assert that new tab is open");
+        String oldTab = driver.getWindowHandle();
+        driver.findElement(By.xpath(".//*[@id='tabs-1']/div/p/a")).click();
+        ArrayList<String> newTab = new ArrayList<String>(driver.getWindowHandles());
+        newTab.remove(oldTab);
+        String switchedTab = driver.switchTo().window(newTab.get(0)).getCurrentUrl();
 
-        Set<String> set = driver.getWindowHandles();
-        assert set.size() == 1;
-        String switchedTab = driver.switchTo().window((String) set.toArray()[0]).getCurrentUrl();
-        System.out.println(switchedTab);
         Assert.assertEquals(switchedTab, expectedNewTabURL);
     }
 
