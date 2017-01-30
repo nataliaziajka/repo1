@@ -67,4 +67,10 @@ public class DemoQAPage extends BasePage{
         driver.get("http://demoqa.com/selectable/");
         return PageFactory.initElements(driver, SelectablePage.class);
     }
+
+    public FramesAndWindowsPage openFramesAndWindowsSection(){
+        LOG.info("Open Frames And Windows section");
+        driver.get("http://demoqa.com/frames-and-windows/");
+        return PageFactory.initElements(driver, FramesAndWindowsPage.class);
+    }
  }

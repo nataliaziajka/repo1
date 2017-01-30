@@ -7,7 +7,6 @@ import pages.DemoQAPage;
 import pages.DroppablePage;
 
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by Natalia on 2016-12-12.
@@ -28,7 +27,7 @@ public class InteractionTest extends BaseTest {
                 .dragAndDropElement()
                     .assertThatDropTextIsDisplayed();
         }
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void testResizable() {
         //Comment: driver = new FirefoxDriver();  -->on the internet was information that this functionality works only on FF
         new DemoQAPage(driver)

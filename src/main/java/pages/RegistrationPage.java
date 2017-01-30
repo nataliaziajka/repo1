@@ -77,13 +77,6 @@ public class RegistrationPage extends BasePage{
         super(driver);
     }
 
-    public RegistrationPage assertPhoneNumberError() {
-        LOG.info("Assert phone number error displayed");
-        //Assert.assertTrue(phoneError.size() == 1);
-        Assert.assertFalse(phoneError.get(0).getText().equals("* Minimum 10 Digits starting with Country Code"));
-        return this;
-    }
-
     public RegistrationPage assertNoPhoneNumberError() {
         LOG.info("Assert no phone number error");
         Assert.assertTrue(phoneError.isEmpty());

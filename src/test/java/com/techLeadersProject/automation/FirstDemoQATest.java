@@ -12,6 +12,6 @@ public class FirstDemoQATest extends BaseTest {
                 .enterSearchPhrase("demoqa.com")
                 .clickEnterToConfirmTheChoice()
                 .clickToDemoQALink()
-                .assertThatDemoQALogoIsDisplayed();
+                    .assertThatDemoQALogoIsDisplayed();
         }
     }
