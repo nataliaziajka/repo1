@@ -2,9 +2,9 @@ package pages;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
@@ -27,7 +27,7 @@ public class SelectablePage extends BasePage {
     private List<WebElement> listSelectedGridItems;
 
     private final static Logger LOG = Logger.getLogger(RegistrationPage.class);
-    private final static String LIST_OF_ELEMENTS = ".//*[@id='tabs-1']/div/ol/li";
+    private final static String LIST_OF_ELEMENTS = ".//*[@id='tabs-1']/div/ol/li[text()='%s']";
 
     public SelectablePage(WebDriver driver) {
         super(driver);
@@ -71,15 +71,12 @@ public class SelectablePage extends BasePage {
 //    }
 
     public SelectablePage selectMultiElements(List<String> itemsToSelect)  {
-
-        List<WebElement> listItems = driver.findElements(By.xpath(LIST_OF_ELEMENTS));
-
-        Actions builder = new Actions(driver);
-        builder.clickAndHold(listItems.get(1)).clickAndHold(listItems.get(2)).clickAndHold(listItems.get(3)).clickAndHold(listItems.get(4))
-                .click();
-
-        Action selectMultiple = builder.build();
-        selectMultiple.perform();
+        Actions actions = new Actions(driver);
+        actions.keyDown(Keys.CONTROL);
+        for (String s: itemsToSelect) {
+            actions.click(driver.findElement(By.xpath(String.format(LIST_OF_ELEMENTS, s))));
+            actions.perform();
+        }
 
     return this;
 

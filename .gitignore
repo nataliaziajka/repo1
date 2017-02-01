@@ -2,6 +2,7 @@
 *.jar
 *.iml
 *.xml
-.idea/*.*
 *.log
 /out/
+target
+.idea

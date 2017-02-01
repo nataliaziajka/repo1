@@ -36,7 +36,7 @@ public class InteractionTest extends BaseTest {
                     .assertThatSizeOfElementWasChanged();
 
     }
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void testSelectable(){
         new DemoQAPage(driver)
             .openSelectableSection()
