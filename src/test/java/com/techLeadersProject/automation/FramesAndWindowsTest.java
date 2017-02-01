@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class FramesAndWindowsTest extends BaseTest{
 
-    @Test(enabled =true)
+    @Test(enabled = false)
     public void openNewTab(){
             new DemoQAPage(driver)
                     .openFramesAndWindowsSection()

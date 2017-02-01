@@ -26,4 +26,5 @@ public abstract class BasePage{
     protected void waitForWebElementToBeClickable(WebElement webElement) {
         new WebDriverWait(driver, DEFAULT_IMPLICITLY_TIMEOUT_IN_SECONDS).until(ExpectedConditions.elementToBeClickable(webElement));
     }
+    
 }
