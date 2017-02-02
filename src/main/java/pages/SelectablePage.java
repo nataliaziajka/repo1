@@ -18,16 +18,13 @@ import java.util.List;
  */
 public class SelectablePage extends BasePage {
 
-    @FindBy(xpath = ".//*[@id='tabs-1']/div/ol/li")
-    private WebElement listOfElements;
-
-    @FindBy(css = "ol#selectable li.ui-selected")
-    private List<WebElement> listSelectedItems;
-
-    private List<WebElement> listSelectedGridItems;
-
     private final static Logger LOG = Logger.getLogger(RegistrationPage.class);
     private final static String LIST_OF_ELEMENTS = ".//*[@id='tabs-1']/div/ol/li[text()='%s']";
+    @FindBy(xpath = ".//*[@id='tabs-1']/div/ol/li")
+    private WebElement listOfElements;
+    @FindBy(css = "ol#selectable li.ui-selected")
+    private List<WebElement> listSelectedItems;
+    private List<WebElement> listSelectedGridItems;
 
     public SelectablePage(WebDriver driver) {
         super(driver);
@@ -41,7 +38,6 @@ public class SelectablePage extends BasePage {
         }
         Collections.sort(actualSelectedItems);
         Collections.sort(expectedSelectedItems);
-
         Assert.assertEquals(actualSelectedItems, expectedSelectedItems);
         return this;
     }
@@ -55,7 +51,6 @@ public class SelectablePage extends BasePage {
         Assert.assertEquals(actualSelectedGrid, expectedSelectedGridItems);
         return this;
     }
-
 //    public SelectablePage selectMultiElements(List<String> itemsToSelect) {
 //        LOG.info("Select multiple options");
 //
@@ -70,15 +65,14 @@ public class SelectablePage extends BasePage {
 //        return this;
 //    }
 
-    public SelectablePage selectMultiElements(List<String> itemsToSelect)  {
+    public SelectablePage selectMultiElements(List<String> itemsToSelect) {
         Actions actions = new Actions(driver);
         actions.keyDown(Keys.CONTROL);
-        for (String s: itemsToSelect) {
+        for (String s : itemsToSelect) {
             actions.click(driver.findElement(By.xpath(String.format(LIST_OF_ELEMENTS, s))));
             actions.perform();
         }
-
-    return this;
-
-}}
+        return this;
+    }
+}
 
