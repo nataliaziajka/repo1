@@ -14,6 +14,11 @@ import org.openqa.selenium.interactions.Actions;
 public class ResizablePage extends BasePage {
 
     private final static Logger LOG = Logger.getLogger(ResizablePage.class);
+    private final static int OFFSET = 50;
+    private int startWidthElement;
+    private int startHeightElement;
+    private int anchorWidth;
+    private int anchorHeight;
 
     public ResizablePage(WebDriver driver) {
         super(driver);
@@ -22,38 +27,31 @@ public class ResizablePage extends BasePage {
     public void assertThatSizeOfElementWasChanged() {
         WebElement elementAfterResize = getDriver().findElement(By.cssSelector("#resizable"));
         Dimension elementSize = elementAfterResize.getSize();
-        System.out.println(elementSize.getWidth());
-        System.out.println(elementSize.getHeight());
-
+        System.out.println("End width: " + elementSize.getWidth());
+        System.out.println("End height: " + elementSize.getHeight());
         LOG.info("Assert that Wight is the same");
-        Assert.assertEquals(183, elementSize.getWidth());
+        Assert.assertEquals("Width is wrong after resize", (startWidthElement + OFFSET - anchorWidth - 1), elementSize.getWidth());
         LOG.info("Assert that Height is the same");
-        Assert.assertEquals(183, elementSize.getHeight());
+        Assert.assertEquals("Height is wrong after resize",(startHeightElement + OFFSET - anchorHeight - 1), elementSize.getHeight());
     }
 
-
-public ResizablePage resizeElement() {
-
-    WebElement resizeableElement = driver.findElement(By.cssSelector("#resizable > div:nth-of-type(3)"));
-    resize(resizeableElement, 50,50);
-
-    return this;
-}
-
-    public void resize(WebElement elementToResize, int xOffset, int yOffset) {
-
-            Actions action = new Actions(driver);
-            action.clickAndHold(elementToResize).moveByOffset(xOffset, yOffset).release().build().perform();
+    public ResizablePage resizeElement() {
+        WebElement resizeableElement = driver.findElement(By.cssSelector("#resizable"));
+        startWidthElement = resizeableElement.getSize().getWidth();
+        startHeightElement = resizeableElement.getSize().getHeight();
+        System.out.println("Start width: " + startWidthElement);
+        System.out.println("Start height: " + startHeightElement);
+        resize(OFFSET, OFFSET);
+        return this;
     }
 
-
-
-
-
-
-
-
-
+    private void resize(int xOffset, int yOffset) {
+        Actions action = new Actions(driver);
+        WebElement anchorForResize = driver.findElement(By.cssSelector("#resizable > div:nth-of-type(3)"));
+        anchorWidth = anchorForResize.getSize().getWidth();
+        anchorHeight = anchorForResize.getSize().getHeight();
+        action.clickAndHold(anchorForResize).moveByOffset(xOffset, yOffset).release().build().perform();
+    }
 }
 
 
