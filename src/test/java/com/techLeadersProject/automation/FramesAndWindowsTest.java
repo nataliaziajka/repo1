@@ -21,7 +21,7 @@ public class FramesAndWindowsTest extends BaseTest{
         new DemoQAPage(driver)
                 .openFramesAndWindowsSection()
                 .openNewWindow()
-                    .assertThatNewSeparateWindowIsOpen("http://toolsqa.com/registration");
+                    .assertThatNewSeparateWindowIsOpen("Oops! That page can’t be found.");
 
 }
 }

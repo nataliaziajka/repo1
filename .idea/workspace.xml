@@ -4,7 +4,6 @@
     <list default="true" id="6b0a4e6e-8ca8-4f1f-a1ae-2d6a480d6bd4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pages/FramesAndWindowsPage.java" afterPath="$PROJECT_DIR$/src/main/java/pages/FramesAndWindowsPage.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/FramesAndWindowsTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/FramesAndWindowsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/InteractionTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/InteractionTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="9a068252-8d21-4eac-bcea-eb82b6d56c85" name="IGNORE" comment="" />
@@ -34,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FramesAndWindowsPage.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FramesAndWindowsPage.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pages/FramesAndWindowsPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.78515005">
+              <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
               <folding>
                 <element signature="e#550#551#0" expanded="true" />
                 <element signature="e#579#580#0" expanded="true" />
@@ -49,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FramesAndWindowsTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FramesAndWindowsTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/FramesAndWindowsTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9036335">
-              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="48" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,8 +102,8 @@
         <option value="$PROJECT_DIR$/src/main/java/pages/BasePage.java" />
         <option value="$PROJECT_DIR$/src/main/java/pages/ResizablePage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/InteractionTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pages/FramesAndWindowsPage.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/FramesAndWindowsTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pages/FramesAndWindowsPage.java" />
       </list>
     </option>
   </component>
@@ -1149,25 +1148,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pages/FramesAndWindowsPage.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/FramesAndWindowsTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <caret line="23" column="48" selection-start-line="23" selection-start-column="47" selection-end-line="23" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pages/FramesAndWindowsPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.78515005">
+          <caret line="45" column="8" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
           <folding>
             <element signature="e#550#551#0" expanded="true" />
             <element signature="e#579#580#0" expanded="true" />
             <element signature="e#872#880#0" expanded="true" />
             <element signature="e#1408#1416#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/techLeadersProject/automation/FramesAndWindowsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9036335">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

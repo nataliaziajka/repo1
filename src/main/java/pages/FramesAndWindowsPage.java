@@ -43,7 +43,7 @@ public class FramesAndWindowsPage extends BasePage {
         String textOnpage = driver.findElement(By.cssSelector(".entry-title")).getText();
 
         Assert.assertEquals(textOnpage, expectedTitlePage);
-
+        
     }
 
 
