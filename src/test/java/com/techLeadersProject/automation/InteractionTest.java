@@ -27,7 +27,7 @@ public class InteractionTest extends BaseTest {
                 .dragAndDropElement()
                     .assertThatDropTextIsDisplayed();
         }
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void testResizable() {
         //Comment: driver = new FirefoxDriver();  -->on the internet was information that this functionality works only on FF
         new DemoQAPage(driver)

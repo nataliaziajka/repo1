@@ -33,11 +33,27 @@ public class FramesAndWindowsPage extends BasePage {
         Assert.assertEquals(switchedTab, expectedNewTabURL);
     }
 
-    public FramesAndWindowsPage openNewWindow() throws InterruptedException {
-        WebElement link = driver.findElement(By.xpath("your link xpath"));
-        Actions newwin = new Actions(driver);
-        newwin.keyDown(Keys.SHIFT).click(link).keyUp(Keys.SHIFT).build().perform();
-        Thread.sleep(6000);
+    public void assertThatNewSeparateWindowIsOpen(String expectedTitlePage) {
+        LOG.info("Assert that new separate window is open");
+        String oldWin = driver.getWindowHandle();
+        driver.findElement(By.xpath(".//*[@id='tabs-2']/div/p/a")).click();
+        ArrayList<String> newWin = new ArrayList<String>(driver.getWindowHandles());
+        newWin.remove(oldWin);
+        driver.switchTo().window(newWin.get(0)).getCurrentUrl();
+        String textOnpage = driver.findElement(By.cssSelector(".entry-title")).getText();
+
+        Assert.assertEquals(textOnpage, expectedTitlePage);
+
+    }
+
+
+
+    public FramesAndWindowsPage openNewWindow() {
+        WebElement windowMenuLink = driver.findElement(By.xpath(".//*[@id='ui-id-2']"));
+        windowMenuLink.click();
+        WebElement link = driver.findElement(By.xpath(".//*[@id='tabs-1']/div/p/a"));
+        Actions newWin = new Actions(driver);
+        newWin.keyDown(Keys.SHIFT).click(link).keyUp(Keys.SHIFT).build().perform();
         return this;
     }
     public FramesAndWindowsPage openNewTab(){
@@ -51,13 +67,6 @@ public class FramesAndWindowsPage extends BasePage {
         WebDriver switchedTab = driver.switchTo().window((String) set.toArray()[0]);
         switchedTab.close();
         driver.switchTo().window(base);
-
-
-//        Set<String> winSet = webDriver.getWindowHandles();
-//        List<String> winList = new ArrayList<String>(winSet);
-//        String newTab = winList.get(winList.size() - 1);
-//        webDriver.close(); // close the original tab
-//        webDriver.switchTo().window(newTab); // switch to new tab
 
         return this;
 
