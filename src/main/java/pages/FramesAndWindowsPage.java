@@ -58,8 +58,9 @@ public class FramesAndWindowsPage extends BasePage {
     }
     public FramesAndWindowsPage openNewTab(){
         WebElement link = driver.findElement(By.xpath(".//*[@id='tabs-1']/div/p/a"));
-        Actions newTab = new Actions(driver);
-        newTab.keyDown(Keys.CONTROL).keyDown(Keys.SHIFT).click(link).keyUp(Keys.CONTROL).keyUp(Keys.SHIFT).build().perform();
+//        Actions newTab = new Actions(driver);
+//        newTab.keyDown(Keys.CONTROL).keyDown(Keys.SHIFT).click(link).keyUp(Keys.CONTROL).keyUp(Keys.SHIFT).build().perform();
+        link.click();
         String base = driver.getWindowHandle();
         Set<String> set = driver.getWindowHandles();
         set.remove(base);

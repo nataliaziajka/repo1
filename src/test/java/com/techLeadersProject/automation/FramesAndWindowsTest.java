@@ -8,7 +8,7 @@ import pages.DemoQAPage;
  */
 public class FramesAndWindowsTest extends BaseTest{
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void openNewTab(){
             new DemoQAPage(driver)
                     .openFramesAndWindowsSection()
@@ -21,7 +21,7 @@ public class FramesAndWindowsTest extends BaseTest{
         new DemoQAPage(driver)
                 .openFramesAndWindowsSection()
                 .openNewWindow()
-                    .assertThatNewSeparateWindowIsOpen("Oops! That page can’t be found.");
+                    .assertThatNewSeparateWindowIsOpen("Oops! That page canï¿½t be found.");
 
 }
 }
