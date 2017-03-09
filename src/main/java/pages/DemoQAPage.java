@@ -73,4 +73,9 @@ public class DemoQAPage extends BasePage{
         driver.get("http://demoqa.com/frames-and-windows/");
         return PageFactory.initElements(driver, FramesAndWindowsPage.class);
     }
+    public WidgetPage openAccordionSection(){
+        LOG.info("Open Accordion section");
+        driver.get("http://demoqa.com/accordion/");
+        return PageFactory.initElements(driver, WidgetPage.class);
+    }
  }
