@@ -26,8 +26,9 @@ public class SelectablePage extends BasePage {
 
     private List<WebElement> listSelectedGridItems;
 
-    private final static Logger LOG = Logger.getLogger(RegistrationPage.class);
-    final static String LIST_OF_ELEMENTS = ".//*[@id='tabs-1']/div/ol/li[text()='%s']";
+    private final static Logger LOG = Logger.getLogger(SelectablePage.class);
+
+    private final static String LIST_OF_ELEMENTS = ".//*[@id='tabs-1']/div/ol/li[text()='%s']";
 
     public SelectablePage(WebDriver driver) {
         super(driver);

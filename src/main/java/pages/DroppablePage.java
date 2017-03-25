@@ -6,12 +6,22 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 /**
  * Created by Natalia on 2016-12-12.
  */
 public class DroppablePage extends BasePage {
+
+    @FindBy(css= "#draggableview>p")
+    private WebElement elementToMove;
+
+    @FindBy(css= "#droppableview>p")
+    private WebElement moveToElement;
+
+    @FindBy(css="#draggableview>p")
+    private WebElement draggableView;
 
     private final static Logger LOG = Logger.getLogger(DemoQAPage.class);
 
@@ -20,9 +30,7 @@ public class DroppablePage extends BasePage {
     }
     
     public DroppablePage dragAndDropElement(){
-        driver.findElement(By.cssSelector("#draggableview>p")).click();
-        WebElement elementToMove = driver.findElement(By.cssSelector("#draggableview>p"));
-        WebElement moveToElement = driver.findElement(By.cssSelector("#droppableview>p"));
+        draggableView.click();
         Actions dragAndDrop = new Actions(driver);
         Action action = dragAndDrop.dragAndDrop(elementToMove, moveToElement).build();
         action.perform();

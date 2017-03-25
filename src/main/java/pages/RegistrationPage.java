@@ -11,7 +11,6 @@ import java.io.File;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-
 /**
  * Created by Natalia on 2016-11-28.
  */
@@ -91,7 +90,7 @@ public class RegistrationPage extends BasePage{
 
     public RegistrationPage assertThatFileWasUploadedWithIncorrectExtension() {
         LOG.info("Assert that file was uploaded with incorrect extension");
-        Assert.assertTrue(!uploadError.isEmpty() && uploadError.get(0).getText().contains(" Invalid File"));
+        Assert.assertTrue(!uploadError.isEmpty() && uploadError.get(0).getText().contains("Invalid File"));
         return this;
     }
 

@@ -7,11 +7,18 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
 
 /**
  * Created by Natalia on 2016-12-15.
  */
 public class ResizablePage extends BasePage {
+
+    @FindBy(css="#resizable")
+    private WebElement resizeableElement;
+
+    @FindBy(css="#resizable > div:nth-of-type(3)")
+    private  WebElement anchorForResize;
 
     private final static Logger LOG = Logger.getLogger(ResizablePage.class);
     private final static int OFFSET = 50;
@@ -36,7 +43,6 @@ public class ResizablePage extends BasePage {
     }
 
     public ResizablePage resizeElement() {
-        WebElement resizeableElement = driver.findElement(By.cssSelector("#resizable"));
         startWidthElement = resizeableElement.getSize().getWidth();
         startHeightElement = resizeableElement.getSize().getHeight();
         System.out.println("Start width: " + startWidthElement);
@@ -47,7 +53,6 @@ public class ResizablePage extends BasePage {
 
     private void resize(int xOffset, int yOffset) {
         Actions action = new Actions(driver);
-        WebElement anchorForResize = driver.findElement(By.cssSelector("#resizable > div:nth-of-type(3)"));
         anchorWidth = anchorForResize.getSize().getWidth();
         anchorHeight = anchorForResize.getSize().getHeight();
         action.clickAndHold(anchorForResize).moveByOffset(xOffset, yOffset).release().build().perform();

@@ -44,12 +44,6 @@ public class DemoQAPage extends BasePage{
         return PageFactory.initElements(driver, RegistrationPage.class);
     }
 
-//    public DemoQAPage openDraggableSection(){
-//        LOG.info("Open Draggable section");
-//        driver.get("http://demoqa.com/draggable/");
-//        return this;
-//    }
-
     public DroppablePage openDroppableSection(){
         LOG.info("Open Droppable section");
         driver.get("http://demoqa.com/droppable/");
@@ -73,9 +67,14 @@ public class DemoQAPage extends BasePage{
         driver.get("http://demoqa.com/frames-and-windows/");
         return PageFactory.initElements(driver, FramesAndWindowsPage.class);
     }
-    public WidgetPage openAccordionSection(){
+    public AccordionPage openAccordionSection(){
         LOG.info("Open Accordion section");
         driver.get("http://demoqa.com/accordion/");
-        return PageFactory.initElements(driver, WidgetPage.class);
+        return PageFactory.initElements(driver, AccordionPage.class);
+    }
+    public AutocompletePage openAutocompleteSection(){
+        LOG.info("Open Autocomplete section");
+        driver.get("http://demoqa.com/autocomplete/");
+        return PageFactory.initElements(driver, AutocompletePage.class);
     }
  }

@@ -19,7 +19,7 @@ public class InteractionTest extends BaseTest {
     }
 
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void testDragAndDrop()throws InterruptedException {
         //Comment: driver = new FirefoxDriver();  -->on the internet was information that this functionality works only on FF
         new DemoQAPage(driver)
@@ -27,7 +27,7 @@ public class InteractionTest extends BaseTest {
                 .dragAndDropElement()
                     .assertThatDropTextIsDisplayed();
         }
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void testResizable() {
         //Comment: driver = new FirefoxDriver();  -->on the internet was information that this functionality works only on FF
         new DemoQAPage(driver)
@@ -36,7 +36,7 @@ public class InteractionTest extends BaseTest {
                 .assertThatSizeOfElementWasChanged();
 
     }
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void testSelectable(){
         new DemoQAPage(driver)
             .openSelectableSection()
