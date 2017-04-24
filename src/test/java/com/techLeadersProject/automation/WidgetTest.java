@@ -2,8 +2,8 @@ package com.techLeadersProject.automation;
 
 import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
-import pages.DemoQAPage;
 import pages.AccordionPage;
+import pages.DemoQAPage;
 
 /**
  * Created by Natalia on 2017-01-18.
@@ -11,7 +11,7 @@ import pages.AccordionPage;
 public class WidgetTest extends BaseTest {
     private final static Logger LOG = Logger.getLogger(AccordionPage.class);
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void defaultAccordionDisplay() {
         new DemoQAPage(driver)
                 .openAccordionSection()
@@ -26,6 +26,28 @@ public class WidgetTest extends BaseTest {
                 .openAutocompleteSection()
                 .useDefaultAutocompleteFunction()
                 .assertThatElementIsSelectedFromSuggestionsList();
+
+    }
+    @Test(enabled = false)
+    public void pickDateToFreeTextBox(){
+        new  DemoQAPage(driver)
+                .openDatePickerSection()
+                .selectDateWithInlineCalendar();
+
+    }
+    @Test(enabled = true)
+    public void pickDateFromCalendar(){
+        new  DemoQAPage(driver)
+                .openDatePickerSection()
+                .selectDateFromPopup();
+
+    }
+    @Test(enabled = false)
+    public void useDefaultSlider(){
+        new  DemoQAPage(driver)
+                .openSliderSection()
+                .useDefaultSliderFunction();
+
 
     }
 

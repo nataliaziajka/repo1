@@ -1,5 +1,6 @@
 package pages;
 
+import javafx.scene.control.Slider;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -76,5 +77,15 @@ public class DemoQAPage extends BasePage{
         LOG.info("Open Autocomplete section");
         driver.get("http://demoqa.com/autocomplete/");
         return PageFactory.initElements(driver, AutocompletePage.class);
+    }
+    public DatePickerPage openDatePickerSection(){
+        LOG.info("Open Datepicker section");
+        driver.get("http://demoqa.com/datepicker/");
+        return PageFactory.initElements(driver, DatePickerPage.class);
+    }
+    public SliderPage openSliderSection(){
+        LOG.info("Open Slider section");
+        driver.get("http://demoqa.com/slider/");
+        return PageFactory.initElements(driver, SliderPage.class);
     }
  }
