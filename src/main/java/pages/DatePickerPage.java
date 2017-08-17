@@ -98,7 +98,7 @@ public class DatePickerPage extends BasePage {
         String todayStr = Integer.toString(todayInt);
         return todayStr;
     }
-    private Integer getCurrentMonth() {
+    private Integer   getCurrentMonth() {
         Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
         int monthInt = calendar.get(Calendar.MONTH)+1;
         return monthInt;

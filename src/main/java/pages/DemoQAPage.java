@@ -1,6 +1,5 @@
 package pages;
 
-import javafx.scene.control.Slider;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -87,5 +86,10 @@ public class DemoQAPage extends BasePage{
         LOG.info("Open Slider section");
         driver.get("http://demoqa.com/slider/");
         return PageFactory.initElements(driver, SliderPage.class);
+    }
+    public TooltipPage openTooltipSetion(){
+        LOG.info("Open Tooltip section");
+        driver.get("http://demoqa.com/tooltip/");
+        return PageFactory.initElements(driver, TooltipPage.class);
     }
  }

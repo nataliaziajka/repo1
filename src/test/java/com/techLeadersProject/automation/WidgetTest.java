@@ -35,14 +35,14 @@ public class WidgetTest extends BaseTest {
                 .selectDateWithInlineCalendar();
 
     }
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void pickDateFromCalendar(){
         new  DemoQAPage(driver)
                 .openDatePickerSection()
                 .selectDateFromPopup();
 
     }
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void useDefaultSlider(){
         new  DemoQAPage(driver)
                 .openSliderSection()
